@@ -4,38 +4,37 @@ import math
 class Solution(object):
     def reverseNum(self, num):
         if num < 0:
-	    sign = -1
-	    num *= sign
-	else:
-	    sign=1
-	tmp=0
+            sign = -1
+            num *= sign
+        else:
+            sign=1
+        tmp=0
         while ( num > 0):
-	    tmp = tmp * 10 + (num % 10) 
-	    num /= 10
+            tmp = tmp * 10 + (num % 10)
+            num /= 10
         return tmp*sign
- 
+
     def isPalindrome(self, x):
         """
         :type x: int
         :rtype: bool
         """
-	if x < 0 :
-	    return False
+        if x < 0 :
+            return False
         if x == 0:
             return True
-	modX = x % 10
-	if modX == 0:
-	    return False
+        modX = x % 10
+        if modX == 0:
+            return False
         r_x = self.reverseNum(x)
-	if r_x != x:
-	    return False
+        if r_x != x:
+            return False
         return True
-		
 
 import unittest
 class TestMethods(unittest.TestCase):
     def test_upper(self):
-	s=Solution()
+        s=Solution()
         self.assertEqual(s.reverseNum(123),321)
         self.assertEqual(s.reverseNum(-123),-321)
         self.assertEqual(s.reverseNum(120),21)
